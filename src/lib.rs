@@ -41,7 +41,7 @@ use std::fs::File;
 use std::io::BufWriter;
 use std::io::{prelude::*, BufReader};
 #[cfg(feature = "experimental_save")]
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 mod header;
 pub use header::{
