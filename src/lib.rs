@@ -148,8 +148,8 @@ impl ShellLink {
                 .set_file_attributes(FileAttributeFlags::FILE_ATTRIBUTE_DIRECTORY);
         } else {
             flags |= LinkFlags::HAS_WORKING_DIR
-                | LinkFlags::HAS_RELATIVE_PATH
-                | LinkFlags::HAS_LINK_INFO;
+                | LinkFlags::HAS_RELATIVE_PATH;
+                // | LinkFlags::HAS_LINK_INFO;
             sl.header_mut().set_link_flags(flags);
             sl.set_relative_path(Some(format!(
                 ".\\{}",
@@ -158,7 +158,7 @@ impl ShellLink {
             sl.set_working_dir(Some(
                 canonical.parent().unwrap().to_str().unwrap().to_string(),
             ));
-            sl.link_info = Some(_);
+            // sl.link_info = Some(_);
         }
 
         Ok(sl)
